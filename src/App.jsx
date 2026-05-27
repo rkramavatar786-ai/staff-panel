@@ -13,8 +13,13 @@ function App() {
 
   const [name,setName] = useState("");
   const [employeeId,setEmployeeId] = useState("");
+  const [mobile,setMobile] = useState("");
   const [department,setDepartment] = useState("");
   const [activity,setActivity] = useState("");
+  const [reason,setReason] = useState("");
+  const [outTime,setOutTime] = useState("");
+  const [inTime,setInTime] = useState("");
+  const [remarks,setRemarks] = useState("");
 
   const saveStaff = async ()=>{
 
@@ -24,7 +29,7 @@ function App() {
       !department
     ){
 
-      alert("Please Fill All Fields");
+      alert("Please Fill Required Fields");
 
       return;
 
@@ -38,9 +43,14 @@ function App() {
 
           name,
           employeeId,
+          mobile,
           department,
           activity,
-          time:new Date().toLocaleString()
+          reason,
+          outTime,
+          inTime,
+          remarks,
+          createdAt:new Date().toLocaleString()
 
         }
       );
@@ -49,8 +59,13 @@ function App() {
 
       setName("");
       setEmployeeId("");
+      setMobile("");
       setDepartment("");
       setActivity("");
+      setReason("");
+      setOutTime("");
+      setInTime("");
+      setRemarks("");
 
     }
 
@@ -69,7 +84,7 @@ function App() {
       <div className="form-box">
 
         <h1>
-          Physics Wallah ERP
+          PW Staff ERP
         </h1>
 
         <h2>
@@ -94,6 +109,15 @@ function App() {
           }
         />
 
+        <input
+          type="number"
+          placeholder="Mobile Number"
+          value={mobile}
+          onChange={(e)=>
+            setMobile(e.target.value)
+          }
+        />
+
         <select
           value={department}
           onChange={(e)=>
@@ -101,29 +125,15 @@ function App() {
           }
         >
 
-          <option>
-            Select Department
-          </option>
+          <option>Select Department</option>
 
-          <option>
-            Academic
-          </option>
-
-          <option>
-            Operations
-          </option>
-
-          <option>
-            Marketing
-          </option>
-
-          <option>
-            Accounts
-          </option>
-
-          <option>
-            Administration
-          </option>
+          <option>Academic</option>
+          <option>Operations</option>
+          <option>Marketing</option>
+          <option>Accounts</option>
+          <option>Administration</option>
+          <option>Counselling</option>
+          <option>Management</option>
 
         </select>
 
@@ -134,27 +144,48 @@ function App() {
           }
         >
 
-          <option>
-            Select Activity
-          </option>
+          <option>Select Activity</option>
 
-          <option>
-            Check IN
-          </option>
-
-          <option>
-            Check OUT
-          </option>
-
-          <option>
-            Lunch Break
-          </option>
-
-          <option>
-            Official Visit
-          </option>
+          <option>Check IN</option>
+          <option>Check OUT</option>
+          <option>During Working Hours Exit</option>
+          <option>Official Visit</option>
+          <option>Lunch Break</option>
 
         </select>
+
+        <input
+          type="text"
+          placeholder="Reason"
+          value={reason}
+          onChange={(e)=>
+            setReason(e.target.value)
+          }
+        />
+
+        <input
+          type="time"
+          value={outTime}
+          onChange={(e)=>
+            setOutTime(e.target.value)
+          }
+        />
+
+        <input
+          type="time"
+          value={inTime}
+          onChange={(e)=>
+            setInTime(e.target.value)
+          }
+        />
+
+        <textarea
+          placeholder="Remarks"
+          value={remarks}
+          onChange={(e)=>
+            setRemarks(e.target.value)
+          }
+        />
 
         <button onClick={saveStaff}>
           Save Staff Activity
