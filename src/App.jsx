@@ -17,9 +17,36 @@ function App() {
   const [department,setDepartment] = useState("");
   const [activity,setActivity] = useState("");
   const [reason,setReason] = useState("");
+  const [remarks,setRemarks] = useState("");
+
   const [outTime,setOutTime] = useState("");
   const [inTime,setInTime] = useState("");
-  const [remarks,setRemarks] = useState("");
+
+  // CURRENT TIME
+
+  const getCurrentTime = ()=>{
+
+    return new Date().toLocaleTimeString();
+
+  };
+
+  // OUT TIME
+
+  const markOutTime = ()=>{
+
+    setOutTime(getCurrentTime());
+
+  };
+
+  // IN TIME
+
+  const markInTime = ()=>{
+
+    setInTime(getCurrentTime());
+
+  };
+
+  // SAVE DATA
 
   const saveStaff = async ()=>{
 
@@ -63,9 +90,9 @@ function App() {
       setDepartment("");
       setActivity("");
       setReason("");
+      setRemarks("");
       setOutTime("");
       setInTime("");
-      setRemarks("");
 
     }
 
@@ -84,7 +111,7 @@ function App() {
       <div className="form-box">
 
         <h1>
-          PW Staff ERP
+          Physics Wallah ERP
         </h1>
 
         <h2>
@@ -147,10 +174,20 @@ function App() {
           <option>Select Activity</option>
 
           <option>Check IN</option>
+
           <option>Check OUT</option>
-          <option>During Working Hours Exit</option>
-          <option>Official Visit</option>
-          <option>Lunch Break</option>
+
+          <option>
+            During Working Hours Exit
+          </option>
+
+          <option>
+            Official Visit
+          </option>
+
+          <option>
+            Lunch Break
+          </option>
 
         </select>
 
@@ -163,21 +200,35 @@ function App() {
           }
         />
 
-        <input
-          type="time"
-          value={outTime}
-          onChange={(e)=>
-            setOutTime(e.target.value)
-          }
-        />
+        {/* AUTO TIME */}
 
-        <input
-          type="time"
-          value={inTime}
-          onChange={(e)=>
-            setInTime(e.target.value)
-          }
-        />
+        <div className="time-section">
+
+          <button
+            className="time-btn"
+            onClick={markOutTime}
+          >
+            Mark OUT Time
+          </button>
+
+          <p>
+            OUT Time:
+            {outTime || " Not Marked"}
+          </p>
+
+          <button
+            className="time-btn"
+            onClick={markInTime}
+          >
+            Mark IN Time
+          </button>
+
+          <p>
+            IN Time:
+            {inTime || " Not Marked"}
+          </p>
+
+        </div>
 
         <textarea
           placeholder="Remarks"
@@ -187,7 +238,10 @@ function App() {
           }
         />
 
-        <button onClick={saveStaff}>
+        <button
+          className="save-btn"
+          onClick={saveStaff}
+        >
           Save Staff Activity
         </button>
 

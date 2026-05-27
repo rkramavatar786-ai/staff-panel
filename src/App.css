@@ -20,23 +20,23 @@ body{
 
 .form-box{
   width:100%;
-  max-width:500px;
+  max-width:520px;
   background:white;
   padding:30px;
-  border-radius:18px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
 .form-box h1{
   text-align:center;
   color:#4338ca;
   margin-bottom:8px;
-  font-size:28px;
+  font-size:30px;
 }
 
 .form-box h2{
   text-align:center;
-  margin-bottom:22px;
+  margin-bottom:25px;
   color:#444;
   font-size:20px;
 }
@@ -45,7 +45,7 @@ body{
 .form-box select,
 .form-box textarea{
   width:100%;
-  padding:13px;
+  padding:14px;
   margin-bottom:16px;
   border:1px solid #ccc;
   border-radius:10px;
@@ -53,14 +53,40 @@ body{
 }
 
 .form-box textarea{
-  height:80px;
+  height:90px;
   resize:none;
 }
 
-.form-box button{
+.time-section{
+  margin-bottom:18px;
+}
+
+.time-btn{
   width:100%;
-  padding:14px;
+  padding:13px;
+  border:none;
   background:#4338ca;
+  color:white;
+  border-radius:10px;
+  margin-top:10px;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.time-btn:hover{
+  background:#312e81;
+}
+
+.time-section p{
+  margin-top:8px;
+  font-size:14px;
+  color:#333;
+}
+
+.save-btn{
+  width:100%;
+  padding:15px;
+  background:#16a34a;
   color:white;
   border:none;
   border-radius:10px;
@@ -68,6 +94,6 @@ body{
   cursor:pointer;
 }
 
-.form-box button:hover{
-  background:#312e81;
+.save-btn:hover{
+  background:#15803d;
 }
