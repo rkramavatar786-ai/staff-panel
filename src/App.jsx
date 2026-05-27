@@ -81,6 +81,22 @@ function App() {
 
         }
       );
+      await fetch(
+  "https://script.google.com/macros/s/AKfycbzOzG97lSBmmufuFM3gUpYgFRDmIV4zu7xi8xZY_iOWzaw82dBUFVeqA8h_EPJJsijK0g/exec",
+  {
+    method:"POST",
+    body:JSON.stringify({
+
+      name,
+      mobile,
+      department,
+      activity,
+      time:new Date().toLocaleString()
+
+    })
+
+  }
+);
 
       alert("Staff Activity Saved");
 
